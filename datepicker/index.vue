@@ -57,6 +57,7 @@
 <script>
 import CalendarPanel from './calendar-panel.vue'
 import Languages from './languages.js'
+import moment from 'moment'
 
 export default {
   components: { CalendarPanel },
@@ -108,6 +109,7 @@ export default {
   watch: {
     value: {
       handler (val) {
+        val = moment(val).format('YYYY-MM-DD')
         if (!this.range) {
           this.currentValue = this.isValidDate(val) ? val : undefined
         } else {

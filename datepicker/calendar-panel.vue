@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import moment from 'moment'
 export default {
   props: {
     startAt: null,
@@ -151,9 +152,9 @@ export default {
     getClasses (cell) {
       const classes = []
       const cellTime = cell.date.getTime()
-      const curTime = this.value ? new Date(this.value).setHours(0, 0, 0, 0) : 0
-      const startTime = this.startAt ? new Date(this.startAt).setHours(0, 0, 0, 0) : 0
-      const endTime = this.endAt ? new Date(this.endAt).setHours(0, 0, 0, 0) : 0
+      const curTime = this.value ? moment(this.value).seconds(0).minutes(0).hours(0).valueOf() : 0
+      const startTime = this.startAt ? moment(this.startAt).seconds(0).minutes(0).hours(0).valueOf() : 0
+      const endTime = this.endAt ? moment(this.endAt).seconds(0).minutes(0).hours(0).valueOf() : 0
       const today = new Date().setHours(0, 0, 0, 0)
 
       classes.push(cell.classes)

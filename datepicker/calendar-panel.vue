@@ -163,7 +163,7 @@ export default {
         classes.push('disabled');
       } else if (
         (this.notBefore !== '' && cell.date.getTime() < (new Date(this.notBefore)).getTime()) ||
-        (this.notAfter !== '' && cell.date.getTime() > (new Date(this.notAfter+' 00:00:00')).getTime())
+        (this.notAfter !== '' && cell.date.getTime() > moment(this.notAfter).seconds(0).minutes(0).hours(0).valueOf())
       ) {
         classes.push('disabled');
       }
